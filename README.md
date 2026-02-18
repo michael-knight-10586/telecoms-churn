@@ -1,7 +1,8 @@
 # Customer Churn Prediction - MLOps Pipeline
 
 
-# Objective: Predict customer churn with data science to facilitate an intervention
+# Objective: 
+Predict customer churn with data science to facilitate an intervention
 
 
 # Constraints:
