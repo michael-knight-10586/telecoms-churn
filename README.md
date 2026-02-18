@@ -1,6 +1,5 @@
-# \# Customer Churn Prediction - MLOps Pipeline
+# Customer Churn Prediction - MLOps Pipeline
 
-# 
 
 # Objective: Predict customer churn with data science to facilitate an intervention
 
@@ -11,7 +10,7 @@ Natural fit for XGBoost
 Large input files suited to production process
 Gives a clearly interpretable ranked probability score
 
-Outline:
+# Outline:
 Follow a medallion process 
 Describe the data and feature engineer
 Fit the XGBoost model
