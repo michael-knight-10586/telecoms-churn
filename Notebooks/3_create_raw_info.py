@@ -16,7 +16,7 @@ from pyspark.sql.window import Window
 
 # Load data
 customer_info_df = spark.table("aisha_workspace.churn_bronze.customer_info_bronze")
-cease_df = spark.table("aisha_workksapce.churn_bronze.cease_bronze")
+cease_df = spark.table("aisha_workspace.churn_bronze.cease_bronze")
 
 # Create live customer baseline
 silver_live_raw_info = create_live_customer_baseline(customer_info_df, cease_df, buffer_months=3)
