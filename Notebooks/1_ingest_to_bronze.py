@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "5"
+# ///
 # Create a database to organize our bronze layer tables
 # This separates our project from other work in the workspace
 spark.sql("CREATE DATABASE IF NOT EXISTS churn_bronze")
@@ -10,7 +14,7 @@ print("Database 'churn_bronze' created and selected")
 
 # Read cease.csv from DBFS using PySpark
 cease_df = spark.read.csv(
-    "dbfs:/FileStore/tables/cease.csv",
+    "/Volumes/aisha_workspace/telecoms_churn/raw/cease.csv",
     header=True,           # First row contains column names
     inferSchema=True       # Automatically detect data types
 )
@@ -30,7 +34,7 @@ print(f"Cease data ingested: {cease_df.count()} rows")
 
 # Read calls.csv from DBFS
 calls_df = spark.read.csv(
-    "dbfs:/FileStore/tables/calls.csv",
+    "/Volumes/aisha_workspace/telecoms_churn/raw/calls.csv",
     header=True,
     inferSchema=True
 )
@@ -51,7 +55,7 @@ print(f"Calls data ingested: {calls_df.count()} rows")
 # Read customer_info.parquet from DBFS
 # Parquet files don't need header or inferSchema - metadata is built in
 customer_info_df = spark.read.parquet(
-    "dbfs:/FileStore/tables/customer_info.parquet"
+    "/Volumes/aisha_workspace/telecoms_churn/raw/customer_info.parquet"
 )
 
 # Display sample
@@ -89,5 +93,4 @@ usage_df.write \
 print(f"Usage data ingested: {usage_df.count()} rows")
 
 # COMMAND ----------
-
 
