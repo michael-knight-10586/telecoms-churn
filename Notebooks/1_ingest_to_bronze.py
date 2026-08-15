@@ -79,7 +79,7 @@ for f in file_info:
 # COMMAND ----------
 
 # Read usage.parquet from DBFS
-usage_df = spark.read.parquet("dbfs:/FileStore/tables/usage_new.parquet")
+usage_df = spark.read.parquet("dbfs:/FileStore/tables/usage.parquet")
 
 # Display sample
 display(usage_df.limit(5))
