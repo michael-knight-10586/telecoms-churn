@@ -1,4 +1,3 @@
-# Databricks notebook source
 """
 Feature engineering functions for customer info data
 """
