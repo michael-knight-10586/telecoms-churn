@@ -5,7 +5,7 @@
 
 # System path for imports
 import sys
-sys.path.append('/Workspace/Users/michaelknight@leviathan.onmicrosoft.com/telecoms-churn')
+sys.path.append(sys.path.append('/Workspace/Users/michael.knight.10586@outlook.com/telecoms-churn')
 
 # PySpark functions
 from pyspark.sql.functions import (
