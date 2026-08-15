@@ -1,4 +1,3 @@
-# Databricks notebook source
 """
 Dataset creation functions for churn prediction model
 """
