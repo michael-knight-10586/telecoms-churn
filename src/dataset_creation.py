@@ -56,13 +56,18 @@ def create_live_customer_baseline(customer_info_df, cease_df, buffer_months=3):
         .select("unique_customer_identifier", col("datevalue").alias("behav_win"))
     
     # Join customer_info data from sampled month
-    live_baseline = sampled_months.join(
-        customer_info_df,
-        (sampled_months.unique_customer_identifier == customer_info_df.unique_customer_identifier) &
-        (sampled_months.behav_win == customer_info_df.datevalue),
+    live_baseline = sampled_months.alias("s").join(
+        customer_info_df.alias("c"),
+        (col("s.unique_customer_identifier") == col("c.unique_customer_identifier")) &
+        (col("s.behav_win") == col("c.datevalue")),
         how="inner"
-    ).drop(customer_info_df.unique_customer_identifier).drop(customer_info_df.datevalue)
-
+    ).select(
+        col("s.unique_customer_identifier"),
+        col("s.behav_win"),
+        *[col(f"c.{x}") for x in customer_info_df.columns
+          if x not in ["unique_customer_identifier", "datevalue"]]
+    )
+    
     # Add churned flag
     live_baseline = live_baseline.withColumn("churned", lit(0))
 
