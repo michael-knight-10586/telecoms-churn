@@ -4,7 +4,7 @@ dbutils.library.restartPython()
 # COMMAND ----------
 
 import sys
-sys.path.append('/Workspace/Users/michaelknight@leviathan.onmicrosoft.com/telecoms-churn')
+sys.path.append('/Workspace/Users/michael.knight.10586@outlook.com/telecoms-churn')
 from pyspark.sql.functions import (
     lit, col, rand, row_number, add_months, max as spark_max, trunc
 )
@@ -15,8 +15,8 @@ from pyspark.sql.window import Window
 
 
 # Load data
-customer_info_df = spark.table("leviathan_wkspc.churn_bronze.customer_info_bronze")
-cease_df = spark.table("leviathan_wkspc.churn_bronze.cease_bronze")
+customer_info_df = spark.table("aisha_wkspc.churn_bronze.customer_info_bronze")
+cease_df = spark.table("aisha_wkspc.churn_bronze.cease_bronze")
 
 # Create live customer baseline
 silver_live_raw_info = create_live_customer_baseline(customer_info_df, cease_df, buffer_months=3)
